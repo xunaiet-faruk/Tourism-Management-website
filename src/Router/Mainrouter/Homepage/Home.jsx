@@ -1,4 +1,5 @@
 import Banner from "../../../Component/Banner/Banner";
+import SpotsSection from "../../../Component/Spots/SpotsSection";
 
 
 const Home = () => {
@@ -6,6 +7,7 @@ const Home = () => {
         <div>
 
            <Banner/>
+           <SpotsSection/>
             
         </div>
     );

@@ -1,0 +1,46 @@
+[
+    {
+        "image": "https://i.ibb.co.com/qk8vdCw/image.png",
+        "image2": "https://i.ibb.co.com/5kjpdJJ/image.png",
+        "image3": "https://i.ibb.co.com/5kjpdJJ/image.png",
+        "placeName": "France",
+        "memberPerson": 4,
+        "days": 12,
+        "price": "$2000"
+    },
+    {
+        "image": "https://i.ibb.co.com/0XNs6ZD/image.png",
+        "placeName": "Italy",
+        "memberPerson": 3,
+        "days": 6,
+        "price": "$1800"
+    },
+    {
+        "image": "https://i.ibb.co.com/T28KqmD/image.png",
+        "placeName": "Spain",
+        "memberPerson": 2,
+        "days": 9,
+        "price": "$1500"
+    },
+    {
+        "image": "https://i.ibb.co.com/tzgwkdt/image.png",
+        "placeName": "England",
+        "memberPerson": 5,
+        "days": 17,
+        "price": "$2200"
+    },
+    {
+        "image": "https://i.ibb.co.com/QfyQd2M/image.png",
+        "placeName": "Netherlands",
+        "memberPerson": 4,
+        "days": 4,
+        "price": "$1700"
+    },
+    {
+        "image": "https://i.ibb.co.com/TvpGrm1/image.png",
+        "placeName": "Switzerland",
+        "memberPerson": 3,
+        "days": 5,
+        "price": "$2500"
+    }
+]

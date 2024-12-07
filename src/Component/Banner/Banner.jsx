@@ -22,11 +22,11 @@ const Banner = () => {
     useEffect(() => {
         const interval = setInterval(() => {
             nextVideo();
-        }, 2000); // Automatically change video every 2 seconds
+        }, 3000); // Automatically change video every 2 seconds
 
         // Cleanup interval when the component is unmounted or when the effect is changed
         return () => clearInterval(interval);
-    }, []);
+    }, [nextVideo]);
 
     return (
         <div className="relative max-w-screen-xl mx-auto">
@@ -43,7 +43,7 @@ const Banner = () => {
             </div>
 
           <div className='absolute bottom-[250px] text-white space-y-7 left-[230px]'>
-                <h1 className='text-4xl text-center font-semibold '>EXPLORE THE NEW  WORLD</h1>
+                <h1 className='text-4xl text-center font-semibold font-serif '>EXPLORE THE NEW  WORLD</h1>
                 <p className='text-md text-center '>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam et reprehenderit saepe minus nostrum maiores <br /> expedita porro0 , dolorum a. Vitae obcaecati adipisci maiores praesentium, iure nam. Illo doloremque veritatis inventore <br /> Et ullam nam numquam veniam. Aliquam, repellat ipsum eius dignissimos iure doloremque?</p>
          
          <div className='flex justify-center items-center'>
