@@ -7,6 +7,7 @@ import Register from "../Pages/Authentication/Register/Register";
 import AddPlaces from "../Pages/Addspots/AddPlaces";
 import Allplaces from "../Pages/AllPlaces/Allplaces";
 import Login from "../Pages/Authentication/Login/Login";
+import ErrorPage from "../Component/ErrorPage";
 
 
 
@@ -15,6 +16,7 @@ export const router = createBrowserRouter([
     {
         path: "/",
         element: <Main/>,
+        errorElement:<ErrorPage/>,
         children : [
             {
                 path:'/',
