@@ -21,10 +21,10 @@ const SpotsSection = () => {
                 <h1 className="text-center text-[#FB8E26] uppercase text-5xl font-serif font-semibold ">We Offer Tourists Spots </h1>
             </div>
 
-            <div className="max-w-screen-lg mx-auto grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4  mb-32">
+            <div className="max-w-screen-lg mx-auto grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4  mb-48">
 
                 {
-                    spots.map((item,index)=><div key={index} className="bg-gray-50 h-[320px] rounded-md shadow-xl hover:shadow-2xl hover:shadow-gray-400 hover:rounded-xl">
+                    spots.map((item,index)=><div key={index} className="bg-gray-50 h-[320px] rounded-xl shadow-xl hover:shadow-2xl hover:shadow-gray-400 hover:rounded-xl">
 
                         <div className="p-2">
                             <img className="w-full h-[180px] object-cover rounded-xl" src={item?.image} alt="" />

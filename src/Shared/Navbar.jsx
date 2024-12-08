@@ -71,19 +71,7 @@ const Navbar = () => {
                             Home
                         </NavLink>
                         <NavLink
-                            to="/All Tourists Spot"
-                            className={({ isActive, isPending }) =>
-                                isPending
-                                    ? ''
-                                    : isActive
-                                        ? 'border-b-2 text-2xl text-center text-[#FB8E26] py-2 border-red-400'
-                                        : 'text-2xl text-center'
-                            }
-                        >
-                            All Tourists Spot
-                        </NavLink>
-                        <NavLink
-                            to="/Add Tourists Spot"
+                            to="/addspots"
                             className={({ isActive, isPending }) =>
                                 isPending
                                     ? ''
@@ -93,6 +81,18 @@ const Navbar = () => {
                             }
                         >
                             Add Tourists Spot
+                        </NavLink>
+                        <NavLink
+                            to="/AllTouristsSpot"
+                            className={({ isActive, isPending }) =>
+                                isPending
+                                    ? ''
+                                    : isActive
+                                        ? 'border-b-2 text-2xl text-center text-[#FB8E26] py-2 border-red-400'
+                                        : 'text-2xl text-center'
+                            }
+                        >
+                            All  Tourists Spot
                         </NavLink>
                         <NavLink
                             to="/ My List"
