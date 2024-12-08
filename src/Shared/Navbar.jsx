@@ -107,7 +107,7 @@ const Navbar = () => {
                             My List
                         </NavLink>
                         <NavLink
-                            to="/register"
+                            to="/login"
                             className={({ isActive, isPending }) =>
                                 isPending
                                     ? ''
