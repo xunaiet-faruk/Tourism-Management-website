@@ -2,7 +2,7 @@
 
 const Story = () => {
     return (
-        <div className="mb-32">
+        <div className="mb-32 max-w-screen-xl mx-auto">
            <div className="flex justify-center">
             <div className="w-1/2 space-y-5">
                     <p className="text-[#FB8E26] text-xl font-semibold">Our Services</p>
@@ -19,7 +19,7 @@ const Story = () => {
 
       {/* ----------  icon card --------- */}
 
-        <div className="flex -mt-44 gap-10 ml-[160px]">
+        <div className="flex -mt-44 gap-10 ml-[130px]">
             <div className="space-y-2">
                     <img className="w-[50px]" src="	https://html-templates.evonicmedia.com/adventurist/assets/images/icon/services-1.svg" alt="" />
                     <p className="text-xl font-semibold">Custom <br/> Destinations</p>
@@ -35,7 +35,7 @@ const Story = () => {
           
         </div>
 
-                    <button type="button" className="mt-12 ml-[160px] relative inline-block h-12 w-42 overflow-hidden border-[#FB8E26] px-5 py-2 hover:text-white font-semibold text-[#FB8E26] shadow-lg before:absolute before:inset-0 before:-z-10 before:block before:translate-x-[90%] before:rounded-s-full  before:duration-200 after:absolute after:inset-0 after:-z-10 after:block after:-translate-x-[90%] after:rounded-e-full after:bg-[#FB8E26] after:duration-500  before:hover:translate-x-0 after:hover:translate-x-0">See All Service</button>
+                    <button type="button" className="mt-12 ml-[130px] relative inline-block h-12 w-42 overflow-hidden border-[#FB8E26] px-5 py-2 hover:text-white font-semibold text-[#FB8E26] shadow-lg before:absolute before:inset-0 before:-z-10 before:block before:translate-x-[90%] before:rounded-s-full  before:duration-200 after:absolute after:inset-0 after:-z-10 after:block after:-translate-x-[90%] after:rounded-e-full after:bg-[#FB8E26] after:duration-500  before:hover:translate-x-0 after:hover:translate-x-0">See All Service</button>
 
 
         </div>

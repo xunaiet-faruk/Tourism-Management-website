@@ -8,7 +8,7 @@ import { LiaLinkedin } from 'react-icons/lia';
 const Footer = () => {
     return (
         <div
-            className="w-full"
+            className="w-full max-w-screen-2xl mx-auto"
             style={{
                 backgroundImage: "url('https://adventor.wpengine.com/wp-content/themes/adventor/modules/footer/assets/images/footer-bg.jpg')",
                 backgroundSize: 'cover',

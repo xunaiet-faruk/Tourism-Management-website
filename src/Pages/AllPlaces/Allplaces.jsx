@@ -1,7 +1,22 @@
 import { FaRightLong } from "react-icons/fa6";
+import Useaxios from "../../Hooks/Useaxios";
+import { useEffect, useState } from "react";
+import { TbCurrencyTaka } from "react-icons/tb";
+import { PiHandshakeDuotone } from "react-icons/pi";
+import { Link } from "react-router-dom";
 
 
 const Allplaces = () => {
+    const axiosPublice =Useaxios()
+
+    const [spots,setSpots] =useState([])
+
+    useEffect(()=>{
+        axiosPublice.get('/AddSpots')
+        .then(res =>setSpots(res.data))
+    },[axiosPublice])
+
+
     return (
         <div>   
               <section
@@ -27,52 +42,69 @@ const Allplaces = () => {
                
                <div className="grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 max-w-screen-xl mx-auto mb-32 gap-12">
 
-                    <article className="flex transition hover:shadow-2xl  shadow-xl">
-                        <div className="rotate-180 p-2 [writing-mode:_vertical-lr]">
-                            <time
-                               
-                                className="flex items-center justify-between gap-4 text-xs font-bold uppercase text-gray-900"
-                            >
-                                <span>2022</span>
-                                <span className="w-px flex-1 bg-gray-900/10"></span>
-                                <span>Oct 10</span>
-                            </time>
-                        </div>
+                   {
+                        spots.map((item, index) => <article key={index} className="flex transition hover:shadow-2xl  shadow-xl">
+                            <div className="rotate-180 p-2 [writing-mode:_vertical-lr]">
+                                <time
 
-                        <div className="hidden sm:block sm:basis-56">
-                            <img
-                                alt=""
-                                src="https://images.unsplash.com/photo-1609557927087-f9cf8e88de18?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
-                                className="aspect-square h-full w-full object-cover"
-                            />
-                        </div>
-
-                        <div className="flex flex-1 flex-col justify-between">
-                            <div className="border-s border-gray-900/10 p-4 sm:border-l-transparent sm:p-6">
-                                <a href="#">
-                                    <h3 className="font-bold uppercase text-gray-900">
-                                        Finding the right guitar for your style - 5 tips
-                                    </h3>
-                                </a>
-
-                                <p className="mt-2 line-clamp-3 text-sm/relaxed text-gray-700">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae dolores, possimus
-                                    pariatur animi temporibus nesciunt praesentium dolore sed nulla ipsum eveniet corporis
-                                    quidem, mollitia itaque minus soluta, voluptates neque explicabo tempora nisi culpa eius
-                                    atque dignissimos. Molestias explicabo corporis voluptatem?
-                                </p>
-                            </div>
-
-                            <div className="sm:flex sm:items-end sm:justify-end">
-                                <a
-                                    href="#"
-                                    className="block bg-[#FB8E26] text-white px-5 py-3 text-center text-xs font-bold uppercase  transition "
+                                    className="flex items-center justify-between gap-4 text-xs font-bold uppercase text-gray-900"
                                 >
-                                   View Details
-                                </a>
+                                   <div className="flex gap-2">
+                                       
+                                        <PiHandshakeDuotone className="rotate-90" />
+                                        <span>{item?.year}</span>
+
+                                   </div>
+                                    <span className="w-px flex-1 bg-gray-900/10"></span>
+                                    <span>{item?.time} <span className="text-[8px] text-gray-400"> Days</span></span>
+                                </time>
                             </div>
-                        </div>
-                    </article>
+
+                            <div className="hidden sm:block sm:basis-56">
+                                <img
+                                    alt=""
+                                    src={item?.image}
+                                    className="aspect-square h-full w-full object-cover"
+                                />
+                            </div>
+
+                            <div className="flex flex-1 flex-col justify-between">
+                                <div className="border-s border-gray-900/10 p-4 sm:border-l-transparent sm:p-6">
+                                    
+                                        <div className="flex justify-between">
+                                        <h3 className="font-bold uppercase text-gray-900">
+                                            {item?.spotsname}
+                                        </h3>
+                                        <h3 className="text-sm text-gray-500">{item?.vacancy}</h3>
+                                        </div>
+                                 
+
+                                    <p className="mt-2 line-clamp-3 text-sm/relaxed text-gray-700">
+                                        {item?.details}
+                                    </p>
+                                </div>
+
+                                <div className="flex justify-between">
+
+                                    <div className="flex items-center ">
+                                        <TbCurrencyTaka className="text-lg"/>
+                                        <span className="text-[#FB8E26] ">{item?.cost}</span>
+
+                                    </div>
+
+                                    <div className="sm:flex sm:items-end sm:justify-end">
+                                        <Link
+                                            to={''}
+                                            className="block bg-[#FB8E26] text-white px-5 py-3 text-center text-xs font-bold uppercase  transition "
+                                        >
+                                            View Details
+                                        </Link>
+                                    </div>
+
+                                    </div>
+                            </div>
+                        </article>)
+                   }
                    
 
                </div>

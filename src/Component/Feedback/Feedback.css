@@ -1,0 +1,26 @@
+.fashion-slider-container {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.fashion-slide img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.fashion-description {
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.fashion-description h3 {
+    font-size: 1.5rem;
+}
+
+.fashion-description p {
+    font-size: 1rem;
+}

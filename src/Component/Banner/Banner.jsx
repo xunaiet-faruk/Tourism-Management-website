@@ -29,7 +29,7 @@ const Banner = () => {
     }, [nextVideo]);
 
     return (
-        <div className="relative max-w-screen-xl mx-auto">
+        <div className="relative max-w-screen-2xl mx-auto">
             {/* Video Slide without fading out */}
             <div className="h-[630px] w-full overflow-hidden relative">
                 <video
