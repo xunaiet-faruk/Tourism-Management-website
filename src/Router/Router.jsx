@@ -8,6 +8,8 @@ import AddPlaces from "../Pages/Addspots/AddPlaces";
 import Allplaces from "../Pages/AllPlaces/Allplaces";
 import Login from "../Pages/Authentication/Login/Login";
 import ErrorPage from "../Component/ErrorPage";
+import AllpagesDetails from "../Pages/AllPlaces/AllpagesDetails";
+import MyList from "../Pages/Mylist/MyList";
 
 
 
@@ -37,6 +39,14 @@ export const router = createBrowserRouter([
             {
                 path:'/Register',
                 element:<Register/>
+            },
+            {
+                path:'/Addspots/:id',
+                element:<AllpagesDetails/>
+            },
+            {
+                path:'/mylist',
+                element:<MyList/>
             },
         ]
     },

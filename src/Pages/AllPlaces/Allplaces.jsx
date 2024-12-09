@@ -3,7 +3,7 @@ import Useaxios from "../../Hooks/Useaxios";
 import { useEffect, useState } from "react";
 import { TbCurrencyTaka } from "react-icons/tb";
 import { PiHandshakeDuotone } from "react-icons/pi";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 
 const Allplaces = () => {
@@ -15,8 +15,11 @@ const Allplaces = () => {
         axiosPublice.get('/AddSpots')
         .then(res =>setSpots(res.data))
     },[axiosPublice])
+    
 
 
+
+ 
     return (
         <div>   
               <section
@@ -94,7 +97,7 @@ const Allplaces = () => {
 
                                     <div className="sm:flex sm:items-end sm:justify-end">
                                         <Link
-                                            to={''}
+                                            to={`/Addspots/${item._id}`}
                                             className="block bg-[#FB8E26] text-white px-5 py-3 text-center text-xs font-bold uppercase  transition "
                                         >
                                             View Details

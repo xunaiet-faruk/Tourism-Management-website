@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Useaxios from "../../Hooks/Useaxios";
 import Swal from "sweetalert2";
 import { FaRightLong } from "react-icons/fa6";
+import { AuthContext } from "../../Component/Provider/Authprovider";
 
 // ImgBB API URL with the API key
 const image_hoisting = import.meta.env.VITE_OISTING_KEY;  // API Key
@@ -12,6 +13,7 @@ const AddPlaces = () => {
     const [imagePreview, setImagePreview] = useState(null);
     const axiosPublice = Useaxios();
     const [showName, setShowName] = useState({});
+    const {user} =useContext(AuthContext)
 
     const handleForm = async (e) => {
         e.preventDefault();
@@ -28,7 +30,6 @@ const AddPlaces = () => {
         const details = form.details.value;
 
         if (imageFile) {
-            // Step 1: Upload Image to ImgBB
             const formData = new FormData();
             formData.append("image", imageFile);
 
@@ -41,10 +42,8 @@ const AddPlaces = () => {
                 const imgData = await imgRes.json();
 
                 if (imgData.success) {
-                    // Step 2: Get the image URL from ImgBB
                     const imageUrl = imgData.data.url;
 
-                    // Step 3: Send the form data including image URL to your database
                     const formDataToSend = {
                         email,
                         name,
@@ -132,9 +131,10 @@ const AddPlaces = () => {
                             <input
                                 type="email"
                                 name="email"
+                                value={user?.email || ""}
                                 className="w-[400px] border-b-2 border-[#FB8E26] rounded-xl h-10 px-5"
                                 placeholder="Enter Email"
-                            />
+                                readOnly />
                         </div>
                         <div>
                             <input

@@ -98,7 +98,7 @@ const Navbar = () => {
                             All Tourists Spot
                         </NavLink>
                         <NavLink
-                            to="/My List"
+                            to="/mylist"
                             className={({ isActive }) =>
                                 isActive
                                     ? "border-b-2 text-2xl text-center text-[#FB8E26] py-2 border-red-400"

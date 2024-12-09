@@ -55,7 +55,7 @@ const Authprovider = ({ children }) => {
         signIn,
         logout,
         updateProfile,
-        googleSignIn, // Add googleSignIn function to context
+        googleSignIn, 
     };
 
     return (

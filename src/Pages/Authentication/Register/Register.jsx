@@ -3,6 +3,7 @@ import { FaHome } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Component/Provider/Authprovider";
 import Swal from "sweetalert2";
+import { updateProfile } from "firebase/auth";
 
 const Register = () => {
     const [showName, setShowName] = useState({});
