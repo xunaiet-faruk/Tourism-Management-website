@@ -2,19 +2,21 @@ import { useEffect, useState } from "react";
 import { FaHandPointLeft, FaHandPointRight } from "react-icons/fa";
 import { FaCalendarDays } from "react-icons/fa6";
 import { IoPersonCircleSharp } from "react-icons/io5";
+import Useaxios from "../../Hooks/Useaxios";
+import { Link } from "react-router-dom";
 
 
 const SpotsSection = () => {
     const [spots,setSpots]=useState([])
+    const axiosPublice =Useaxios();
 
     useEffect(()=>{
 
-    fetch('./Spots.json')
-    .then(res => res.json())
-    .then(data =>setSpots(data))
+        axiosPublice.get('/Spots')
+        .then(res => setSpots(res.data))
     
     
-    },[])
+    },[axiosPublice])
     return (
         <div>
             <div className="py-20">
@@ -50,9 +52,13 @@ const SpotsSection = () => {
                     <div className="flex justify-between px-8 py-2">
                             <p className="text-xl text-[#FB8E26] font-serif font-semibold ">{item?.price}</p>
                             <div className="flex items-center justify-center gap-1 ">
-                                <button className="border-b rounded-xl border-[#FB8E26] py-1  px-5 hover:text-[#FB8E26]">View Details
-                                    
+                            <Link to={`/Spots/${item._id}`}>
+                                    <button className="border-b rounded-xl border-[#FB8E26] py-1  px-5 hover:text-[#FB8E26]">View Details
+                                  
                         </button>
+
+
+                                </Link>  
                           
                     </div>
                     </div>

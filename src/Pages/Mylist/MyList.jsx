@@ -39,7 +39,7 @@ const MyList = () => {
             cancelButtonText: 'Cancel',
         }).then((result) => {
             if (result.isConfirmed) {
-                // Call deleteData function to delete the item
+              
                 deleteData(id);
             }
         });

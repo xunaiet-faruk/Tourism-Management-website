@@ -10,6 +10,9 @@ import Login from "../Pages/Authentication/Login/Login";
 import ErrorPage from "../Component/ErrorPage";
 import AllpagesDetails from "../Pages/AllPlaces/AllpagesDetails";
 import MyList from "../Pages/Mylist/MyList";
+import PrivateRouter from "./PrivateRouter";
+import SpotsDetails from "../Component/Spots/SpotsDetails";
+
 
 
 
@@ -26,11 +29,11 @@ export const router = createBrowserRouter([
             },
             {
                 path:'/addspots',
-                element:<AddPlaces/>
+                element: <PrivateRouter><AddPlaces /></PrivateRouter>
             },
             {
                 path:'/AllTouristsSpot',
-                element:<Allplaces/>
+                element: <PrivateRouter><Allplaces /></PrivateRouter>
             },
             {
                 path:'/login',
@@ -42,11 +45,15 @@ export const router = createBrowserRouter([
             },
             {
                 path:'/Addspots/:id',
-                element:<AllpagesDetails/>
+                element: <PrivateRouter><AllpagesDetails /></PrivateRouter>
             },
             {
                 path:'/mylist',
-                element:<MyList/>
+                element: <PrivateRouter><MyList /></PrivateRouter>
+            },
+            {
+                path:'/Spots/:id',
+                element: <SpotsDetails/>
             },
         ]
     },

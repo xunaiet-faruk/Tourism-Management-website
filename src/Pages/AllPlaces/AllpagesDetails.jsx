@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { FaFlagCheckered, FaRightLong } from 'react-icons/fa6';
 import { FaCalendarAlt, FaMapMarkerAlt, FaMoneyBillAlt } from 'react-icons/fa';
-
+import Loading from "../../Component/Loading";
 const AllpagesDetails = () => {
     const { id } = useParams();
     const [spotDetails, setSpotDetails] = useState(null); 
@@ -24,7 +24,7 @@ const AllpagesDetails = () => {
     }, [id]);
 
     if (loading) {
-        return <div>Loading...</div>;
+        return <Loading/>;
     }
 
     if (!spotDetails) {
