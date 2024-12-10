@@ -3,19 +3,19 @@ import UpdateModal from "./UpdateModal";
 import Uselist from "../../Hooks/Uselist";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Component/Provider/Authprovider";
+import Useaxios from "../../Hooks/Useaxios";
+import Swal from "sweetalert2";
 
 const MyList = () => {
     const { user } = useContext(AuthContext);
     const [modalOpen, setModalOpen] = useState(false);
     const [selectedItem, setSelectedItem] = useState(null);
     const [spots, setSpots] = Uselist();
-
+    const axiosPublice = Useaxios();
 
     if (!user?.email) {
         return <div>Loading... or Please login</div>;
     }
-
-   
 
     const handleUpdateClick = (item) => {
         setSelectedItem(item);
@@ -26,9 +26,37 @@ const MyList = () => {
         const updatedSpots = spots.map((spot) =>
             spot._id === id ? { ...spot, ...updatedData } : spot
         );
-        setSpots(updatedSpots); // স্পট স্টেট আপডেট করা
+        setSpots(updatedSpots);
     };
 
+    const handleDelete = (id) => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "This action cannot be undone!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, delete it!',
+            cancelButtonText: 'Cancel',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Call deleteData function to delete the item
+                deleteData(id);
+            }
+        });
+    };
+
+    const deleteData = async (id) => {
+        try {
+            const response = await axiosPublice.delete(`/AddSpots/${id}`);
+            if (response.status === 200) {
+                // Update the UI by filtering out the deleted item from the spots list
+                setSpots(prevSpots => prevSpots.filter(item => item._id !== id));
+                Swal.fire('Deleted!', 'The item has been deleted.', 'success');
+            }
+        } catch (error) {
+            Swal.fire('Error!', 'Something went wrong.', 'error');
+        }
+    };
 
     return (
         <div>
@@ -51,7 +79,7 @@ const MyList = () => {
                         <tr className="h-[70px] border-b bg-[#ece5de]">
                             <th className="px-6 py-4 text-start">Place</th>
                             <th className="px-6 py-4 text-start">Country</th>
-                            <th className="px-6 py-4 text-start">vacancy</th>
+                            <th className="px-6 py-4 text-start">Vacancy</th>
                             <th className="px-6 py-4 text-start">Cost</th>
                             <th className="px-6 py-4 text-start">Recover</th>
                             <th className="px-6 py-4 text-start">Delete</th>
@@ -93,7 +121,10 @@ const MyList = () => {
                                     </button>
                                 </td>
                                 <td className="px-6 py-4 text-start">
-                                    <button className="flex items-center rounded-full bg-red-500 px-4 py-2 font-bold text-white shadow-md transition-all duration-300 hover:bg-red-700">
+                                    <button
+                                        onClick={() => handleDelete(item._id)}
+                                        className="flex items-center rounded-full bg-red-500 px-4 py-2 font-bold text-white shadow-md transition-all duration-300 hover:bg-red-700"
+                                    >
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
                                             fill="none"
@@ -122,7 +153,6 @@ const MyList = () => {
                 item={selectedItem}
                 onUpdate={handleUpdateInList}
             />
-
         </div>
     );
 };
